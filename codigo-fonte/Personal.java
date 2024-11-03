@@ -18,7 +18,7 @@ public class Personal {
         this.alunos = new ArrayList<>();
     }
 
-    // Getters and Setters
+    // Getters e Setters
     public String getNome() {
         return nome;
     }
@@ -59,15 +59,36 @@ public class Personal {
         return alunos;
     }
 
-    public void setAlunos(ArrayList<Aluno> alunos) {
-        this.alunos = alunos;
-    }
-
+    // Método para adicionar aluno
     public void addAluno(Aluno aluno) {
         this.alunos.add(aluno);
     }
 
+    // Método para remover aluno
     public void removeAluno(Aluno aluno) {
         this.alunos.remove(aluno);
+    }
+
+    // Método para visualizar todos os alunos
+    public void visualizarAlunos() {
+        System.out.println("Lista de alunos do Personal Trainer " + nome + ":");
+        for (Aluno aluno : alunos) {
+            System.out.println("- " + aluno.getNomeAluno());
+        }
+    }
+
+    // Método para gerar treino para um aluno específico
+    public void gerarTreino(Aluno aluno) {
+        if (!aluno.getAvaliacoes().isEmpty()) {
+            // Pegando a última avaliação do aluno
+            AvaliacaoFisica ultimaAvaliacao = aluno.getAvaliacoes().get(aluno.getAvaliacoes().size() - 1);
+            System.out.println("Gerando treino para o aluno " + aluno.getNomeAluno() + " com base na avaliação:");
+            System.out.println("Peso: " + ultimaAvaliacao.getPeso() + 
+                               ", Medidas Corporais: " + ultimaAvaliacao.getMedidasCorporais() + 
+                               ", Percentual de Gordura: " + ultimaAvaliacao.getPercentualGordura());
+            // Aqui você pode expandir para adicionar lógica de treino personalizada
+        } else {
+            System.out.println("Nenhuma avaliação encontrada para o aluno " + aluno.getNomeAluno());
+        }
     }
 }
