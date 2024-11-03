@@ -1,10 +1,15 @@
+import java.util.UUID;
+
 public class Atleta extends Aluno {
     private boolean offseason;
     private boolean precontest;
     private int gramasCarb;
     private int litrosAgua;
 
-    public Atleta(boolean offseason, boolean precontest, int gramasCarb, int litrosAgua) {
+    public Atleta(String nomeAluno, double altura, String sexo, boolean favorito, int idade, double peso,
+                  double imc, double gc, double me, double mb, double gv, String[] diasDisponiveis,
+                  String treino, boolean offseason, boolean precontest, int gramasCarb, int litrosAgua) {
+        super(nomeAluno, altura, sexo, favorito, idade, peso, imc, gc, me, mb, gv, diasDisponiveis, treino);
         this.offseason = offseason;
         this.precontest = precontest;
         this.gramasCarb = gramasCarb;

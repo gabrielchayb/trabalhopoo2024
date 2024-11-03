@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.UUID;
 
 public class Aluno {
@@ -15,8 +16,10 @@ public class Aluno {
     private double gv;
     private String[] diasDisponiveis;
     private String treino;
+    private ArrayList<AvaliacaoFisica> avaliacoes;
 
-    public Aluno(String nomeAluno, double altura, String sexo, boolean favorito, int idade, double peso, double imc, double gc, double me, double mb, double gv, String[] diasDisponiveis, String treino) {
+    public Aluno(String nomeAluno, double altura, String sexo, boolean favorito, int idade,
+    double peso, double imc, double gc, double me, double mb, double gv, String[] diasDisponiveis, String treino) {
         this.nomeAluno = nomeAluno;
         this.altura = altura;
         this.sexo = sexo;
@@ -31,9 +34,10 @@ public class Aluno {
         this.gv = gv;
         this.diasDisponiveis = diasDisponiveis;
         this.treino = treino;
+        this.avaliacoes = new ArrayList<>();
     }
 
-    // Getters and Setters for each attribute
+    // Getters e Setters
     public String getNomeAluno() {
         return nomeAluno;
     }
@@ -140,5 +144,31 @@ public class Aluno {
 
     public void setTreino(String treino) {
         this.treino = treino;
+    }
+    
+    public ArrayList<AvaliacaoFisica> getAvaliacoes() {
+        return avaliacoes;
+    }
+
+    public void adicionarAvaliacao(AvaliacaoFisica avaliacao) {
+        avaliacoes.add(avaliacao);
+    }
+
+    public void removerAvaliacao(int index) {
+        if (index >= 0 && index < avaliacoes.size()) {
+            avaliacoes.remove(index);
+        }
+    }
+
+    public void visualizarAvaliacoes() {
+        for (int i = 0; i < avaliacoes.size(); i++) {
+            System.out.println("Avaliação " + (i + 1) + ": " + avaliacoes.get(i));
+        }
+    }
+
+    public void editarAvaliacao(int index, AvaliacaoFisica novaAvaliacao) {
+        if (index >= 0 && index < avaliacoes.size()) {
+            avaliacoes.set(index, novaAvaliacao);
+        }
     }
 }

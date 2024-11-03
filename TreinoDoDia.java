@@ -26,6 +26,10 @@ public class TreinoDoDia {
         this.quantidadeExercicios = this.exercicios.size();
     }
 
+    public List<String> getExercicios(){
+        return this.exercicios;
+    }
+
     public List<String> getTipos() {
         return this.tipos;
     }
