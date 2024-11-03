@@ -64,9 +64,22 @@ public class Personal {
         this.alunos.add(aluno);
     }
 
-    // Método para remover aluno
-    public void removeAluno(Aluno aluno) {
+    // Método para remover aluno pelo objeto aluno
+    public void removerAluno(Aluno aluno) {
         this.alunos.remove(aluno);
+    }
+    
+    // Método para remover aluno pelo indice
+    public void removerAluno(int index) {
+        if (index >= 0 && index < alunos.size()) {
+            this.alunos.remove(index);
+        }
+    }
+
+    public void editarAluno(int index, Aluno novoAluno) {
+        if (index >= 0 && index < alunos.size()) {
+            this.alunos.set(index, novoAluno);
+        }
     }
 
     // Método para visualizar todos os alunos

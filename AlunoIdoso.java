@@ -1,3 +1,5 @@
+import java.util.UUID;
+
 public class AlunoIdoso extends Aluno {
     private int pas; // Pressão Arterial Sistólica
     private int pad; // Pressão Arterial Diastólica
@@ -5,8 +7,10 @@ public class AlunoIdoso extends Aluno {
     private int glicemia; // Nível de Glicose no Sangue
     private String observacoes;
 
-    // Construtor
-    public AlunoIdoso(int pas, int pad, int bpm, int glicemia, String observacoes) {
+    public AlunoIdoso(String nomeAluno, double altura, String sexo, boolean favorito, int idade, double peso,
+                     double imc, double gc, double me, double mb, double gv, String[] diasDisponiveis,
+                     String treino, int pas, int pad, int bpm, int glicemia, String observacoes) {
+        super(nomeAluno, altura, sexo, favorito, idade, peso, imc, gc, me, mb, gv, diasDisponiveis, treino);
         this.pas = pas;
         this.pad = pad;
         this.bpm = bpm;
@@ -14,7 +18,6 @@ public class AlunoIdoso extends Aluno {
         this.observacoes = observacoes;
     }
 
-    // Getters e Setters
     public int getPas() {
         return pas;
     }
